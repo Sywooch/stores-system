@@ -15,7 +15,9 @@ use yii\widgets\ActiveForm;
 
 	<div class="row">
 		<div class="col-lg-8">
-			<div id="map-canvas"></div>
+			<div class="form-group">
+				<div id="map-canvas"></div>
+			</div>
 		</div>
 		<div class="col-lg-4">
 
