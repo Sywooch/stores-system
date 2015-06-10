@@ -8,9 +8,12 @@ $config = [
     'bootstrap' => ['log'],
     'components' => [
         'request' => [
-            // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
-            'cookieValidationKey' => '',
+            'cookieValidationKey' => 'all_you_touch_and_all_you_see_it\'s_all_you_life_will_ever_be',
         ],
+		'urlManager' => [
+			'enablePrettyUrl' => true,
+			'showScriptName' => false,
+		],
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
