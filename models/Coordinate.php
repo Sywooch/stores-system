@@ -13,42 +13,48 @@ use Yii;
  */
 class Coordinate extends \yii\db\ActiveRecord
 {
-    /**
-     * @inheritdoc
-     */
-    public static function tableName()
-    {
-        return '{{%coordinates}}';
-    }
+	/**
+	 * @inheritdoc
+	 */
+	public static function tableName()
+	{
+		return '{{%coordinates}}';
+	}
 
-    /**
-     * @inheritdoc
-     */
-    public function rules()
-    {
-        return [
-            [['lat', 'lng'], 'number']
-        ];
-    }
+	/**
+	 * @inheritdoc
+	 */
+	public function rules()
+	{
+		return [
+			[['lat', 'lng'], 'required'],
+			[['lat', 'lng'], 'number'],
+		];
+	}
 
-    /**
-     * @inheritdoc
-     */
-    public function attributeLabels()
-    {
-        return [
-            'id' => Yii::t('app', 'ID'),
-            'lat' => Yii::t('app', 'Lat'),
-            'lng' => Yii::t('app', 'Lng'),
-        ];
-    }
+	/**
+	 * @inheritdoc
+	 */
+	public function attributeLabels()
+	{
+		return [
+			'id' => Yii::t('app', 'ID'),
+			'lat' => Yii::t('app', 'Latitude'),
+			'lng' => Yii::t('app', 'Longitude'),
+		];
+	}
 
-    /**
-     * @inheritdoc
-     * @return CoordinateQuery the active query used by this AR class.
-     */
-    public static function find()
-    {
-        return new CoordinateQuery(get_called_class());
-    }
+	/**
+	 * @inheritdoc
+	 * @return CoordinateQuery the active query used by this AR class.
+	 */
+	public static function find()
+	{
+		return new CoordinateQuery(get_called_class());
+	}
+
+	public function getStore()
+	{
+		return $this->hasOne(Store::className(), ['coordinate_id' => 'id']);
+	}
 }
