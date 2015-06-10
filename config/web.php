@@ -6,8 +6,10 @@ $config = [
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
 	'homeUrl' => '/store/map',
-	'name' => 'Stores System',
+    'defaultRoute' => '/store/map',
+	'name' => 'Торгові точки',
     'bootstrap' => ['log'],
+    'language' => 'ua_UA',
     'components' => [
         'request' => [
             'cookieValidationKey' => 'all_you_touch_and_all_you_see_it\'s_all_you_life_will_ever_be',
@@ -43,6 +45,26 @@ $config = [
             ],
         ],
         'db' => require(__DIR__ . '/db.php'),
+        'i18n'=>array(
+            'translations' => array(
+                'app*'=>array(
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    'basePath' => "@app/messages",
+                    'sourceLanguage' => 'en_US',
+                    'fileMap' => array(
+                        'app'=>'app.php',
+                    )
+                ),
+                'yii'=>array(
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    'basePath' => "@app/messages",
+                    'sourceLanguage' => 'en_US',
+                    'fileMap' => array(
+                        'yii'=>'yii.php',
+                    )
+                )
+            )
+        ),
     ],
     'params' => $params,
 ];
