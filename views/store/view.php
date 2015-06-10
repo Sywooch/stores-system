@@ -46,15 +46,7 @@ $this->registerJsFile('/js/map/view.js');
 		</div>
 		<div class="col-lg-4">
 
-			<?php echo DetailView::widget([
-				'model' => $store,
-				'attributes' => [
-//					'id',
-//					'coordinate_id',
-					'name',
-					'description:ntext',
-				],
-			]) ?>
+			<?= $store->description ?>
 
 		</div>
 	</div>
