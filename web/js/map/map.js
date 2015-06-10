@@ -19,6 +19,7 @@ function setStoreMarker(store) {
     var latLng = new google.maps.LatLng(store['lat'], store['lng']);
     var marker = new google.maps.Marker({
         position: latLng,
+        title: store['name'],
         map: map
     });
 
