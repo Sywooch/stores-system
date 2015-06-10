@@ -57,8 +57,8 @@ class StoreController extends Controller
 			$stores = Store::find()->all();
 			foreach ($stores as $store) {
 				$response[] = [
-					'lat' => $store->coordinate->lng,
-					'lng' => $store->coordinate->lat,
+					'lat' => $store->coordinate->lat,
+					'lng' => $store->coordinate->lng,
 					'name' => $store->name,
 					'url' => Url::to(['view', 'id' => $store->id]),
 				];
